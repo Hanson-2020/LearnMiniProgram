@@ -1,54 +1,97 @@
 //index.js
-//获取应用实例
-const app = getApp()
+// getApp()获取App()产生的示例对象
+// const app = getApp()
+// console.log(app.globalData.name)
+// console.log(app.globalData.age)
+// const name = app.globalData.name;
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    name: 'Hanson',
+    age: 22,
+    students: [{
+        id: " 0",
+        name: 'Hanson',
+        age: 12
+      },
+      {
+        id: " 1",
+        name: 'Alice',
+        age: 14
+      },
+      {
+        id: " 2",
+        name: 'Black',
+        age: 16
+      },
+    ],
+    count: 0,
+    list: []
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
+
+  //1.监听wxml中相关的一些事件
+  hadnBtnAddClick() {
+    //1.错误做法：界面是不会刷新的
+    // this.data.count +=1;
+    // console.log(this.data.count)
+    // 2.this.setData()
+    this.setData({
+      count: this.data.count + 1
     })
   },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
+  hadnBtnSubClick() {
+    this.setData({
+      count: this.data.count - 1
+    })
+  },
+  handleClickAgree(event) {
+    console.log('---')
+    console.log(event)
+  },
+
+  // 2.五大生命周期
+  //页面被加载出来时
+  onLoad() {
+    console.log('onLoad')
+    // 3.网络请求
+    wx.request({
+      url: 'http://152.136.185.210:8000/api/w6/recommend',
+      success: (res) => {
+        console.log(res)
+        const data = res.data.data.list;
         this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
+          list: data
         })
       }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
     })
+  },
+  //页面显示出来时
+  onShow() {
+    console.log('onShow')
+  },
+  //页面（初次）渲染完成时
+  onReady() {
+    console.log('onReady')
+  },
+  onHide() {
+    console.log('onHide')
+  },
+  onUnload() {
+    console.log('onUnload')
+  },
+
+  // 4.监听其他事件
+  // 监听页面滚动
+  onPageScroll(obj) {
+    // console.log(obj)
+  },
+  // 监听页面滚动到底部
+  onReachBottom() {
+    console.log('页面滚动到底部')
+  },
+  // 下拉刷新
+  onPullDownRefresh() {
+    console.log('下拉刷新事件')
   }
+
 })

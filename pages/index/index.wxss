@@ -3,3 +3,9 @@
   font-size: 15px;
   text-align: center;
 }
+.center{
+  text-align: center;
+}
+button{
+  background: greenyellow;
+}

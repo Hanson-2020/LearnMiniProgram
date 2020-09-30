@@ -1,11 +1,18 @@
 //app.js
 App({
+  // 生命周期: 后台存活两个小时
+  //小程序初始化完成时，会执行的生命周期函数
   onLaunch: function () {
+    // console.log('小程序初始化完成了： onLaunch')
+    // setTimeout(() => {
+    //   //测试onError周期函数用的.
+    //   // const err = new err();
+    //   // return err;
+    // }, 3000);
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
     // 登录
     wx.login({
       success: res => {
@@ -33,7 +40,35 @@ App({
       }
     })
   },
+  //小程序界面显示出来之后会执行的生命周期函数
+  onShow: function (options) {
+    // console.log('界面显示出来: onShow')
+    //1.判断小程序进入的场景
+    console.log(options.scene)
+    switch (options.scene) {
+      case 1001:
+        break;
+      case 1005:
+        break;
+    }
+  },
+  // 2.获取用户信息
+  // wx.getUserInfo({
+  //   success: function(res) {
+  //     console.log(res)
+  //   }
+  // })
+  //界面被隐藏起来的时候执行
+  onHide: function () {
+    console.log('界面隐藏: onHide')
+  },
+  // 程序发生错误时
+  onError: function (err) {
+    console.log('报错: onError')
+  },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    name: 'Hanson',
+    age: 18
   }
 })

@@ -1,2 +1,18 @@
 <!--index.wxml-->
+<!-- 1.小程序的数据绑定 -->
 <view class="title">初次界面-即初始化界面。</view>
+<!-- <view class="center">我是 {{name}} 啊！</view>
+<view class="center  ">我老大不小了，今年 {{age}}岁!</view>
+<view class="center" wx:for="{{students}}">{{item.name}}</view>
+<view class="center">这是计数的:{{count}}</view>
+<button class="center" bindtap="hadnBtnAddClick">+</button>
+<button class="center" bindtap="hadnBtnSubClick">-</button> -->
+
+<!-- 获取用户信息的方式 -->
+<button bindgetuserinfo="handleClickAgree" size="mini" open-type="getUserInfo">我同意授权</button>
+
+<!-- 单纯展示用户信息的方式 -->
+<open-data type="userNickName"></open-data>
+<!-- <open-data type="userAvatarUrl"></open-data> -->
+
+<view wx:for="{{list}}">{{item.title}}</view>

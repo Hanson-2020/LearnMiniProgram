@@ -1,18 +1,13 @@
-// pages/about/about.js
+// pages/profile/profile.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    message: 'Hanson'
+
   },
-  handleBtnClick() {
-    console.log('点击了按钮~！')
-    this.setData({
-      message: 'Han'
-    }) 
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
