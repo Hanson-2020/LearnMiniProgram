@@ -1,0 +1,20 @@
+<!-- 默认大小为320x240 -->
+<!-- 1.image是行内元素 即不会占据一行 -->
+<!-- <image/> -->
+
+<!-- 2.src：本地地址(相对路径/绝对路径)/远程地址 -->
+<image src="../../assets/0.jpg"></image>
+<image src="/assets/0.jpg"></image>
+<image src="https://res.wx.qq.com/wxdoc/dist/assets/img/0.4cb08bb4.jpg"></image>
+
+<!-- 补充:选中相册图片 -->
+<button bindtap="handleClick">选中</button>
+<image src="{{imagePath}}"></image>
+
+<!-- 3.bindload:监听图片加载  完成 -->
+<!-- lazy-load图片懒加载  图片懒加载，在即将进入一定范围（上下三屏）时才开始加载-->
+<image wx:for="{{1}}" src="https://res.wx.qq.com/wxdoc/dist/assets/img/0.4cb08bb4.jpg" bindload="handleClickLoader" lazy-load>
+</image>
+
+<!-- 4.show-menu-by-longpress 长按图片显示识别小程序码菜单 -->
+<image src="/assets/0.jpg" show-menu-by-longpress></image>

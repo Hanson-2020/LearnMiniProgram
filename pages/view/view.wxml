@@ -1,0 +1,8 @@
+<!-- hover-stay-time="0"手指松开后点击态保留时间，单位毫秒 -->
+<view class="box" hover-class="hover-box" hover-stay-time="0">这是一个小按钮。</view>
+
+<view class="box1" hover-class="hover-box1">
+<!-- hover-stop-propagation指定是否阻止本节点的祖先节点出现点击态 -->
+<!-- 类似于阻止冒泡 -->
+	<view class="box2" hover-class="hover-box2" hover-stop-propagation>一个小按钮。</view>
+</view>

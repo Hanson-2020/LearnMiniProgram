@@ -1,0 +1,26 @@
+/* pages/scroll/scroll.wxss */
+.container1 {
+  background: orange;
+  white-space: nowrap;
+}
+
+.item1 {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  margin: 10px;
+  background: orangered;
+}
+
+/* pages/scroll/scroll.wxss */
+.container2 {
+  margin-top: 30px;
+  height: 220px;
+  background: pink;
+}
+
+.item2 {
+  height: 100px;
+  margin: 10px;
+  background: gray;
+}
