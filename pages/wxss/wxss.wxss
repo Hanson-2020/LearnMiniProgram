@@ -1,0 +1,26 @@
+/* pages/wxss/wxss.wxss */
+/* wxss中使用@impory引入css文件 */
+@import './css//css.wxss';
+@import './css/weui-searchbar.wxss';
+/* @import './css/weui.wxss'; */
+.box1 {
+  font-size: 35px;
+}
+
+.box2 {
+  font-size: 70rpx;
+}
+
+/* .box3 {
+  width: 100px;
+  height: 100px;
+  background: orange;
+  font-size: 35px;
+} */
+
+/* .box4 {
+  font-size: 70rpx;
+  width: 200rpx;
+  height: 200rpx;
+  background: red;
+} */

@@ -1,6 +1,9 @@
 {
   "pages": [
+    "pages/wxs/wxs",
     "pages/index/index",
+    "pages/wxml/wxml",
+    "pages/wxss/wxss",
     "pages/about/about"
   ],
   "window": {

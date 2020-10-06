@@ -1,0 +1,10 @@
+var num = 20;
+var message = 'Hanson';
+var sum = function (num1, num2) {
+  return num1 + num2;
+}
+module.exports = {
+  num: num,
+  message: message,
+  sum: sum
+}

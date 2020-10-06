@@ -1,2 +1,5 @@
 <!--index.wxml-->
+<!--include 直接导入代码 -->
+<include src="/wxml/head.wxml" />
 <view class="title">初次界面-即初始化界面。</view>
+<include src="/wxml/footer.wxml" />

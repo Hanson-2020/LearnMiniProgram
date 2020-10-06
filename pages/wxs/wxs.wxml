@@ -1,0 +1,23 @@
+<!-- <wxs module="info"> 
+  var num  = 20;
+  var message = 'Hanson';
+  var sum = function(num1, num2) {
+    return num1 + num2;
+  }
+  module.exports = {
+    num: num,
+    message: message,
+    sum: sum
+  }
+</wxs>  -->
+<!-- 只能使用相对路径 -->
+<wxs src="../../wxs/info.wxs" module="info" />
+<view>{{info.num}}</view>
+<view>{{info.message}}</view>
+<view>{{info.sum(10,20)}}</view>
+
+
+<!-- 小案例 -->
+<wxs src="../../wxs/format.wxs" module="format"/>
+<view>{{format.priceFormat(price)}}</view>  
+<view>{{format.dateFormat(time)}}</view>
