@@ -3,3 +3,26 @@
   font-size: 15px;
   text-align: center;
 }
+
+.box {
+  width: 200rpx;
+  height: 200rpx;
+  background-color: orange;
+}
+
+.b1 {
+  width: 500rpx;
+  height: 500rpx;
+  background-color: orange;
+}
+
+.b2 {
+  width: 350rpx;
+  height: 350rpx;
+  background-color: pink;
+}
+.b3 {
+  width: 175rpx;
+  height: 175rpx;
+  background-color: gray;
+}

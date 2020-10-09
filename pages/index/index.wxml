@@ -1,2 +1,38 @@
 <!--index.wxml-->
 <view class="title">初次界面-即初始化界面。</view>
+<!-- 1.事件处理 -->
+<button size="mini" bindtap="handleClick">按钮</button>
+<button size="mini" bind:tap="handleClick">按钮</button>
+<button size="mini" catch:tap="handleClick">按钮</button>
+
+<!-- 2.常见的一些事件 -->
+<view class="box" 
+    bind:touchstart="handleTouchStart" 
+    bind:touchmove="handleTouchMove" 
+    bind:touchend="handleTouchEnd" 
+    bind:tap="handleTap" 
+    bind:longpress="handleLongpress">
+</view>
+
+<!-- 3.事件对象的分析 -->
+<!-- touches是记录手指目前触碰的位置 -->
+<!-- changedTouches是记录手指变化 -->
+<button id="btn" size="mini" bindtap="handleEventClick" bindtouchend="handleEventEnd">事件对象</button>
+
+<!-- 4. -->
+<block>
+  <view wx:for="{{title}}" wx:key="index" bindtap="handleFor" data-item="{{item}}" data-index="{{index}}">
+    {{item}}
+  </view>
+</block>
+
+<!-- 5.冒泡事件和事件捕获 -->
+<!-- bind:一层层传递 -->
+<!-- catch:阻止事件的进一步传递 -->
+<!-- 点击3时：从外到内捕获-1-2-3时，先经过1-2，然后在2时被阻止了，所以打印两个，冒泡事件不触发 -->
+<!-- 捕获完后开始向外冒泡： 3-2-1 -->
+<view class="b1" capture-bind:tap="handleCaptureView1" bindtap="handleBindView1">1
+  <view class="b2" capture-bind:tap="handleCaptureView2" catchtap="handleBindView2">2
+    <view class="b3" capture-bind:tap="handleCaptureView3" bindtap="handleBindView3">3</view>
+  </view>
+</view>

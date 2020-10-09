@@ -1,2 +1,5 @@
 <!--pages/about/about.wxml-->
 <text>pages/about/about.wxml</text>
+<button size="mini" bindtap="handleClick"></button>   
+<button size="mini" bind:tap="handleClick"></button>   
+<button size="mini" catch:tap="handleClick"></button>   
