@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/about/about"
+    "pages/about/about",
+    "components/my-cpn/my-cpn"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,2 +1,35 @@
 <!--index.wxml-->
 <view class="title">初次界面-即初始化界面。</view>
+<view class="box">我是Index界面的！</view>
+
+<my-cpn/>
+
+<!-- 1.Class共享 -->
+<my-prop/>
+<my-prop title="Han" titleclass="red"/>
+<my-prop title="Son" titleclass="blue"/>
+
+<!-- 2.triggerEvent方法 -->
+<view>当前： {{count}}</view>
+<my-event bind:increment="handleIncrement"/>
+
+<w-tab-control titles="{{['精选','爆款','新品']}}" bind:itemClick="handleClick" /> 
+<my-slot>
+  <button>我是按钮啊~！</button>
+</my-slot>
+
+<!-- 3.父修改子的内容 selectComponent获取组件内容-->
+<button size="mini" bind:tap="handleIncre">修改组件内的数据</button>
+<my-sel class="my_sel" id="my_sel"/>
+
+<!-- 4.多个插槽的用法 -->
+<!-- 4.1给插槽起名字 -->
+<!-- 4.2必须在Components对象中添加一个选项：options:multipleSlots -->
+
+<button bindtap="handleClickIsShow">切换显示</button>
+<block wx:if="{{isShow}}">
+  <my-manyslot id="mangslot">
+    <button size="mini" slot="slot2" bind:tap="handleManySlot">我是插入的按钮</button>
+    <slider slot="slot3"></slider>
+  </my-manyslot>
+</block>
