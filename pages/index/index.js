@@ -1,54 +1,45 @@
-//index.js
-//获取应用实例
-const app = getApp()
 
+import request from '../../service/network';
 Page({
-  data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+  onLoad: function() {
+    // 1.原生的方式发送网络请求
+    this.get_data_origin();
+    // 2.进行封装的网络请求
+    request({
+      url: 'http://152.136.185.210:8000/api/w6/recommend'
+    }).then(res => {
+      console.log(res)
+    }).catch(err => {
+      console.log(err)
+    }) 
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
+  get_data_origin() {
+    wx.request({
+      url: 'http://152.136.185.210:8000/api/w6/home/data',
+      // methos并且携带参数
+      methods: 'post',
+      // data携带参数
+      data: {
+        type: 'sell',
+        page: 1
+      },
+      success:function(res) {
+        // console.log(res)
       }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
     })
+    // wx.request({
+    //   url: 'http://httpbin.org/post',
+    //   data: {
+    //     name: 'Hanson',
+    //     age: 18
+    //   },
+    //   method: 'post',
+    //   success: function(res) {
+    //     console.log(res)
+    //   },
+    //   fail: function(err) {
+    //     console.log(err)
+    //   }
+    // })
   }
 })
