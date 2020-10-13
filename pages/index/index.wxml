@@ -1,2 +1,9 @@
 <!--index.wxml-->
 <view class="title">初次界面-即初始化界面。</view>
+<button size="mini" bindtap="onToastClick">showToast</button>
+<button size="mini" bindtap="onModalClick">showModal</button>
+<button size="mini" bindtap="onLoadingClick">showLoading</button>
+<button size="mini" bindtap="onActionSheeClick">showActionShee</button>
+
+<!-- 分享按钮 -->
+<button size="mini" open-type="share">分享</button>
