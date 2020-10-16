@@ -1,2 +1,15 @@
-<!--index.wxml-->
-<view class="title">初次界面-即初始化界面。</view>
+<!-- 1.页面跳转navigator页面跳转 -->
+<navigator url="/pages/detail/detail">跳到详情页</navigator>
+<!-- 2.navigator属性：open-type="redirect"重定向 -->
+<!-- 关闭当前页面,跳转到某个页面,不允许跳转到tabBar页面,并且不能返回 -->
+<navigator open-type="redirect" url="/pages/detail/detail">跳到详情页</navigator>
+<!-- 3. open-type="switchTab" -->
+<!-- 跳转到tabBar页面,并关闭其他所有非tabBar页面 -->
+<navigator url="/pages/about/about" open-type="switchTab">跳到关于页switchTab</navigator>
+<!-- 4.reLaunch -->
+<!-- 关闭所有页面,打开应用中某个页面(可以跳转tabBar页面) -->
+<navigator open-type="reLaunch" url="/pages/about/about">跳到详情页reLaunch</navigator>
+<!-- 5.跳转过程中传递数据 -->
+<navigator url="/pages/detail/detail?name=Hanson&age=18">传递数据到detail</navigator>
+
+<view>{{title}}</view>
